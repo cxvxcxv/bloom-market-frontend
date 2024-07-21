@@ -12,3 +12,5 @@ export interface IAuthResponse {
   accessToken: string;
   user: IUser;
 }
+
+export type TAuthMethod = 'login' | 'register';
