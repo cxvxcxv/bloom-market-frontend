@@ -1,6 +1,8 @@
 class DASHBOARD {
   private root = '/dashboard';
 
-  DASHBOARD = this.root;
+  HOME = this.root;
   ORDERS = `${this.root}/orders`;
 }
+
+export const DASHBOARD_PAGES = new DASHBOARD();
