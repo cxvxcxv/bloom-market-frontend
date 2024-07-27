@@ -9,21 +9,21 @@ export const ReviewService = {
     const response = await axiosPublic.get<IReview[]>(
       `/${REVIEWS}?productId=${productId}`,
     );
-    return response;
+    return response.data;
   },
 
   async findOne(id: string) {
     const response = await axiosPublic.get<IReview>(`/${REVIEWS}/${id}`);
-    return response;
+    return response.data;
   },
 
   async create(productId: string, data: TReviewData) {
     const response = await axiosAuth.post(`${REVIEWS}/${productId}`, data);
-    return response;
+    return response.data;
   },
 
   async delete(id: string) {
     const response = await axiosAuth.delete<any>(`/${REVIEWS}/${id}`); //TODO: add typization
-    return response;
+    return response.data;
   },
 };

@@ -7,11 +7,11 @@ import { axiosAuth } from '@/api/interceptors';
 export const OrderService = {
   async getOrders() {
     const response = await axiosAuth.get<IOrder[]>(`/${ORDERS}`);
-    return response;
+    return response.data;
   },
 
   async createOrder(data: IOrderForm) {
     const response = await axiosAuth.post<IOrder>(`/${ORDERS}`, data);
-    return response;
+    return response.data;
   },
 };

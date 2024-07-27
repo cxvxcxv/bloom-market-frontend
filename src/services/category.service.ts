@@ -7,13 +7,13 @@ import { axiosPublic } from '@/api/interceptors';
 export const CategoryService = {
   async findAll() {
     const response = await axiosPublic.get<ICategory[]>(`/${CATEGORIES}`);
-    return response;
+    return response.data;
   },
 
   async findOne(categoryId: string) {
     const response = await axiosPublic.get<ICategory>(
       `${CATEGORIES}/${categoryId}`,
     );
-    return response;
+    return response.data;
   },
 };

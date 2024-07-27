@@ -12,7 +12,7 @@ export const AuthService = {
     );
 
     if (response.data.accessToken) saveTokenStorage(response.data.accessToken);
-    return response;
+    return response.data;
   },
 
   async refreshTokens() {
@@ -21,13 +21,13 @@ export const AuthService = {
     );
 
     if (response.data.accessToken) saveTokenStorage(response.data.accessToken);
-    return response;
+    return response.data;
   },
 
   async logout() {
     const response = await axiosPublic.post<boolean>('auth/logout');
 
     if (response.data) removeFromStorage();
-    return response;
+    return response.data;
   },
 };
