@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 
+import { Sidebar } from '@/components/sidebar/Sidebar';
+
 import { SITE_NAME } from '@/constants/seo.constants';
 
 import './globals.css';
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
     default: `${SITE_NAME}`,
     template: `%s | ${SITE_NAME}`,
   },
-  description: 'shop online on Bloom Market today',
+  description: 'shop online on Bloom Market now',
 };
 
 export default function RootLayout({
@@ -26,6 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
+          <Sidebar />
           {children}
           <Toaster position="bottom-right" toastOptions={{ duration: 1500 }} />
         </Providers>

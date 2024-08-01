@@ -8,6 +8,8 @@ export const getAccessToken = () => {
 };
 
 export const saveTokenStorage = (accessToken: string) => {
+  accessToken = accessToken.slice(7); //removing 'Bearer ' prefix
+
   Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
     domain: process.env.NEXT_PUBLIC_DOMAIN,
     sameSite: 'strict',
