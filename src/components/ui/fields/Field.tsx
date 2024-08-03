@@ -19,8 +19,11 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
   ) => {
     return (
       <div className={`${extra}`}>
-        <label htmlFor={id}>{label}</label>
+        <label htmlFor={id} className="block">
+          {label}
+        </label>
         <input
+          className="w-full text-lg rounded-l p-2"
           ref={ref}
           disabled={disabled}
           type={type}

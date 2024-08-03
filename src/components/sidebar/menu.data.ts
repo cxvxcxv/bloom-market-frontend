@@ -1,4 +1,4 @@
-import { LayoutDashboard } from 'lucide-react';
+import { Home, User } from 'lucide-react';
 
 import { DASHBOARD_PAGES } from '@/config/urls.config';
 
@@ -8,11 +8,11 @@ export const MENU: IMenuItem[] = [
   {
     name: 'profile',
     link: DASHBOARD_PAGES.HOME,
-    icon: LayoutDashboard,
+    icon: User,
   },
   {
     name: 'home',
     link: '/',
-    icon: LayoutDashboard,
+    icon: Home,
   },
 ];

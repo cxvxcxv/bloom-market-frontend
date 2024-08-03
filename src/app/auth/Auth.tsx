@@ -23,7 +23,7 @@ export function Auth() {
 
   const [isLoginForm, setIsLoginForm] = useState(false);
 
-  const { push } = useRouter();
+  const { replace } = useRouter();
 
   const { mutate } = useMutation({
     mutationKey: ['auth'],
@@ -32,7 +32,7 @@ export function Auth() {
     onSuccess() {
       toast.success('Successfully login!');
       reset();
-      push(DASHBOARD_PAGES.HOME);
+      replace(DASHBOARD_PAGES.HOME);
     },
   });
 
@@ -41,9 +41,9 @@ export function Auth() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen p-6">
       <form
-        className="w-1/4 m-auto shadow bg-sidebar rounded-xl p-layout"
+        className="w-1/4 m-auto shadow-2xl bg-sidebar rounded-xl p-layout"
         onSubmit={handleSubmit(onSubmit)}
       >
         <Heading>Auth</Heading>
