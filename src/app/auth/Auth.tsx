@@ -1,6 +1,7 @@
 'use client';
 
 import { useMutation } from '@tanstack/react-query';
+import { LogIn } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -21,11 +22,11 @@ export function Auth() {
     mode: 'onChange',
   });
 
-  const [isLoginForm, setIsLoginForm] = useState(false);
+  const [isLoginForm, setIsLoginForm] = useState(true);
 
   const { replace } = useRouter();
 
-  const { mutate } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationKey: ['auth'],
     mutationFn: (data: IAuthForm) =>
       AuthService.main(isLoginForm ? 'login' : 'register', data),
@@ -34,6 +35,9 @@ export function Auth() {
       reset();
       replace(DASHBOARD_PAGES.HOME);
     },
+    onError(error) {
+      toast.error(error.message);
+    },
   });
 
   const onSubmit: SubmitHandler<IAuthForm> = data => {
@@ -41,38 +45,59 @@ export function Auth() {
   };
 
   return (
-    <div className="flex min-h-screen p-6">
+    <div className="flex min-h-screen">
       <form
-        className="w-1/4 m-auto shadow-2xl bg-sidebar rounded-xl p-layout"
+        className="bg-white dark:bg-gray-300 w-full m-auto shadow-2xl rounded-xl p-12 md:w-3/4 lg:w-1/2"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <Heading>Auth</Heading>
+        <div className="flex mb-6 items-center justify-center flex-col">
+          <div className="bg-primary p-6 rounded-full mb-6">
+            <LogIn width={36} height={36} color="white" />
+          </div>
+          <Heading>{isLoginForm ? 'Sign In' : 'Sign Up'}</Heading>
+          <p className="opacity-50 text-center">
+            {isLoginForm ? 'enter your credentials below' : 'create an account'}
+          </p>
+        </div>
+        <hr className="mb-16 text-bg-light dark:text-bg-dark -mx-12" />
 
         <Field
           id="email"
-          label="Email:"
-          placeholder="Enter email:"
+          placeholder="email"
           type="email"
-          extra="mb-4"
+          inputExtra="rounded-b-none"
           {...register('email', {
             required: 'Email is required!',
           })}
         />
-
+        <hr className="text-white dark:text-gray-300" />
         <Field
           id="password"
-          label="Password: "
-          placeholder="Enter password: "
+          placeholder="password"
           type="password"
+          inputExtra="rounded-t-none"
           {...register('password', {
             required: 'Password is required!',
           })}
-          extra="mb-6"
         />
 
-        <div className="flex items-center gap-5 justify-center">
-          <Button onClick={() => setIsLoginForm(true)}>Login</Button>
-          <Button onClick={() => setIsLoginForm(false)}>Register</Button>
+        <div className="flex justify-center my-8">
+          <Button className="w-1/2" disabled={isPending}>
+            Submit
+          </Button>
+        </div>
+
+        <div className="bg-bg-light dark:bg-gray-500 py-10 rounded-b-xl flex justify-center items-center -mx-12 -mb-12">
+          <p className="inline mr-1 text-sm">
+            {isLoginForm ? 'First time here?' : 'Already registered?'}
+          </p>
+          <button
+            className="font-bold text-sm"
+            onClick={() => setIsLoginForm(!isLoginForm)}
+            type="button"
+          >
+            {isLoginForm ? 'Create an account' : 'Login'}
+          </button>
         </div>
       </form>
     </div>

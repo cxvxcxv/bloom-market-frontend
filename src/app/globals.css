@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    @apply text-txt;
-    @apply bg-bgc;
+    @apply bg-bg-light dark:bg-bg-dark;
+    @apply text-text-dark dark:text-text-light;
   }
 }

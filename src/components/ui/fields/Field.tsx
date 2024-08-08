@@ -2,8 +2,9 @@ import { forwardRef } from 'react';
 
 interface InputFieldProps {
   id: string;
-  label: string;
+  label?: string;
   extra?: string;
+  inputExtra?: string;
   placeholder: string;
   variant?: string;
   state?: 'error' | 'success';
@@ -14,7 +15,18 @@ interface InputFieldProps {
 
 export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
   (
-    { label, id, extra, type, placeholder, state, disabled, isNumber, ...rest },
+    {
+      label,
+      id,
+      extra,
+      inputExtra,
+      type,
+      placeholder,
+      state,
+      disabled,
+      isNumber,
+      ...rest
+    },
     ref,
   ) => {
     return (
@@ -23,7 +35,7 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
           {label}
         </label>
         <input
-          className="w-full text-lg rounded-l p-2"
+          className={`w-full text-lg rounded bg-bg-light dark:bg-bg-dark p-2 outline-none ${inputExtra}`}
           ref={ref}
           disabled={disabled}
           type={type}
