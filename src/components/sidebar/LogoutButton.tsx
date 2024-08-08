@@ -4,10 +4,14 @@ import { useMutation } from '@tanstack/react-query';
 import { LogOut } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
+import { useProfile } from '@/hooks/useProfile';
+
 import { AuthService } from '@/services/auth/auth.service';
 
 export function LogoutButton() {
   const router = useRouter();
+
+  const { data } = useProfile();
 
   const { mutate } = useMutation({
     mutationKey: ['logout'],
@@ -15,11 +19,13 @@ export function LogoutButton() {
     onSuccess: () => router.replace('/auth'),
   });
 
-  return (
+  return data ? (
     <div>
       <button onClick={() => mutate()}>
-        <LogOut size={20} />
+        <LogOut size={20} className="hover:text-primary transition-colors" />
       </button>
     </div>
+  ) : (
+    <></>
   );
 }

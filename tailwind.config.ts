@@ -13,10 +13,16 @@ const config: Config = {
   theme: {
     colors: COLORS,
     extend: {
+      spacing: {
+        sidebar: '30rem',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      transitionDuration: {
+        DEFAULT: '266ms',
       },
     },
   },

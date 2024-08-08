@@ -6,12 +6,12 @@ import type { IMenuItem } from './menu.interface';
 
 export const MENU: IMenuItem[] = [
   {
-    name: 'profile',
+    name: 'Profile',
     link: DASHBOARD_PAGES.HOME,
     icon: User,
   },
   {
-    name: 'home',
+    name: 'Home',
     link: '/',
     icon: Home,
   },
