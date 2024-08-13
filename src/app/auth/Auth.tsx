@@ -47,19 +47,19 @@ export function Auth() {
   return (
     <div className="flex min-h-screen">
       <form
-        className="bg-white dark:bg-gray-300 w-full m-auto shadow-2xl rounded-xl p-12 md:w-3/4 lg:w-1/2"
+        className="m-auto w-full rounded-xl bg-white p-12 shadow-2xl md:w-3/4 lg:w-1/2 dark:bg-gray-300"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="flex mb-6 items-center justify-center flex-col">
-          <div className="bg-primary p-6 rounded-full mb-6">
+        <div className="mb-6 flex flex-col items-center justify-center">
+          <div className="mb-6 rounded-full bg-primary p-6">
             <LogIn width={36} height={36} color="white" />
           </div>
           <Heading>{isLoginForm ? 'Sign In' : 'Sign Up'}</Heading>
-          <p className="opacity-50 text-center">
+          <p className="text-center opacity-50">
             {isLoginForm ? 'enter your credentials below' : 'create an account'}
           </p>
         </div>
-        <hr className="mb-16 text-bg-light dark:text-bg-dark -mx-12" />
+        <hr className="-mx-12 mb-16 text-bg-light dark:text-bg-dark" />
 
         <Field
           id="email"
@@ -81,19 +81,19 @@ export function Auth() {
           })}
         />
 
-        <div className="flex justify-center my-8">
+        <div className="my-8 flex justify-center">
           <Button className="w-1/2" disabled={isPending}>
             Submit
           </Button>
         </div>
 
-        <div className="bg-bg-light dark:bg-gray-500 py-10 rounded-b-xl flex justify-center items-center -mx-12 -mb-12">
-          <p className="inline mr-1 text-sm">
+        <div className="-mx-12 -mb-12 flex items-center justify-center rounded-b-xl bg-bg-light py-10 dark:bg-gray-500">
+          <p className="mr-1 inline text-sm">
             {isLoginForm ? 'First time here?' : 'Already registered?'}
           </p>
           <button
-            className="font-bold text-sm"
-            onClick={() => setIsLoginForm(!isLoginForm)}
+            className="text-sm font-bold"
+            onClick={() => setIsLoginForm(prev => !prev)}
             type="button"
           >
             {isLoginForm ? 'Create an account' : 'Login'}

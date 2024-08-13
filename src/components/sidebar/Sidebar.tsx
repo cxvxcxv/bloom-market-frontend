@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 
 import { LogoutButton } from './LogoutButton';
@@ -10,17 +11,22 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col min-h-screen shadow-xl w-sidebar p-1 md:p-2 lg:p-4">
-      <div className="grow">
+    <aside
+      className={clsx(
+        'fixed left-0 top-0 flex min-h-screen w-[15%] flex-col items-center justify-center p-2 shadow-xl md:items-start dark:bg-gray-500',
+      )}
+    >
+      <nav className="w-full grow">
         {MENU.map(item => (
           <MenuItem
             item={item}
-            key={item.link}
             isActive={pathname === item.link}
+            key={item.name}
           />
         ))}
-      </div>
-      <LogoutButton />
-    </div>
+      </nav>
+
+      <LogoutButton extra="px-4" />
+    </aside>
   );
 }

@@ -2,8 +2,8 @@ import { Loader as LoaderIcon } from 'lucide-react';
 
 const Loader = () => {
   return (
-    <div className="flex justify-center items-center">
-      <LoaderIcon className="animate-spin h-5 w-5 text-white" />
+    <div className="flex items-center justify-center">
+      <LoaderIcon className="h-5 w-5 animate-spin text-white" />
     </div>
   );
 };

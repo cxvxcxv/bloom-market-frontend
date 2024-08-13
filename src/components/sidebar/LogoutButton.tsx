@@ -8,7 +8,7 @@ import { useProfile } from '@/hooks/useProfile';
 
 import { AuthService } from '@/services/auth/auth.service';
 
-export function LogoutButton() {
+export function LogoutButton({ extra }: { extra?: string }) {
   const router = useRouter();
 
   const { data } = useProfile();
@@ -21,8 +21,8 @@ export function LogoutButton() {
 
   return data ? (
     <div>
-      <button onClick={() => mutate()}>
-        <LogOut size={20} className="hover:text-primary transition-colors" />
+      <button className={extra} onClick={() => mutate()} title="Logout">
+        <LogOut size={24} className="transition-colors hover:text-primary" />
       </button>
     </div>
   ) : (

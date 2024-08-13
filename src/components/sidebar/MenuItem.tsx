@@ -13,15 +13,14 @@ export function MenuItem({
   return (
     <Link
       href={item.link}
+      title={item.name}
       className={clsx(
-        'flex gap-2 md:gap-4 md:mb-2 p-2 rounded-md hover:bg-gray-100/5 hover:text-primary transition-colors',
-        { 'text-primary': isActive },
+        'mb-2 flex justify-center gap-4 rounded-md p-2 hover:bg-gray-100/5 hover:text-primary md:justify-start md:p-4',
+        { 'font-semibold text-primary': isActive },
       )}
     >
-      <item.icon />
-      <p>{item.name}</p>
+      <item.icon className="aspect-square min-h-6 min-w-6 md:h-auto md:w-auto" />
+      <p className="hidden md:block">{item.name}</p>
     </Link>
   );
 }
-
-// flex gap-2 md:gap-4 md:mb-2 p-2 rounded-md hover:bg-gray-100/5 hover:text-primary transition-colors

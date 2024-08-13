@@ -35,7 +35,7 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
           {label}
         </label>
         <input
-          className={`w-full text-lg rounded bg-bg-light dark:bg-bg-dark p-2 outline-none ${inputExtra}`}
+          className={`w-full rounded bg-bg-light p-2 text-lg outline-none dark:bg-bg-dark ${inputExtra}`}
           ref={ref}
           disabled={disabled}
           type={type}

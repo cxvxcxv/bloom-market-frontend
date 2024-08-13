@@ -4,9 +4,9 @@ import { Sidebar } from '@/components/sidebar/Sidebar';
 
 export default function GeneralLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex justify-between items-start">
+    <div>
       <Sidebar />
-      <div className="h-full w-full">{children}</div>
+      <div className="ml-[15%]">{children}</div>
     </div>
   );
 }
