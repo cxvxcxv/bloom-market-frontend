@@ -13,7 +13,7 @@ export function Sidebar() {
   return (
     <aside
       className={clsx(
-        'fixed left-0 top-0 flex min-h-screen w-[15%] flex-col items-center justify-center p-2 shadow-xl md:items-start dark:bg-gray-500',
+        'fixed left-0 top-0 flex min-h-screen w-[15%] flex-col items-center justify-center p-2 shadow-xl lg:items-start dark:bg-gray-500',
       )}
     >
       <nav className="w-full grow">

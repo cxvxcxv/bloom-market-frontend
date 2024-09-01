@@ -7,11 +7,11 @@ import { axiosPublic } from '@/api/interceptors';
 export const ProductService = {
   //TODO: test
   async findAll(queryData = {} as TProductDataFilters) {
-    const response = await axiosPublic.get<IProduct[]>(`/${PRODUCTS}`, {
+    const response = await axiosPublic.get(`/${PRODUCTS}`, {
       params: queryData,
     });
 
-    return response.data;
+    return response.data.products;
   },
 
   async findOne(id: string) {

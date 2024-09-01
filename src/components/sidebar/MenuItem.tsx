@@ -15,12 +15,12 @@ export function MenuItem({
       href={item.link}
       title={item.name}
       className={clsx(
-        'mb-2 flex justify-center gap-4 rounded-md p-2 hover:bg-gray-100/5 hover:text-primary md:justify-start md:p-4',
+        'mb-2 flex justify-center gap-4 rounded-md p-4 hover:bg-gray-100/5 hover:text-primary lg:justify-start',
         { 'font-semibold text-primary': isActive },
       )}
     >
-      <item.icon className="aspect-square min-h-6 min-w-6 md:h-auto md:w-auto" />
-      <p className="hidden md:block">{item.name}</p>
+      <item.icon className="aspect-square min-h-6 min-w-6 lg:h-auto lg:w-auto" />
+      <p className="hidden lg:block">{item.name}</p>
     </Link>
   );
 }

@@ -3,5 +3,6 @@ const CATEGORIES = 'categories';
 const PRODUCTS = 'products';
 const REVIEWS = 'reviews';
 const ORDERS = 'orders';
+const CART = 'cart';
 
-export { CATEGORIES, ORDERS, PRODUCTS, REVIEWS, USERS };
+export { CART, CATEGORIES, ORDERS, PRODUCTS, REVIEWS, USERS };

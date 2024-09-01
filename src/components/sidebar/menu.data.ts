@@ -1,4 +1,4 @@
-import { Home, User } from 'lucide-react';
+import { Heart, Package, ShoppingCart, Store, User } from 'lucide-react';
 
 import { DASHBOARD_PAGES } from '@/config/urls.config';
 
@@ -11,8 +11,23 @@ export const MENU: IMenuItem[] = [
     icon: User,
   },
   {
-    name: 'Home',
+    name: 'Store',
     link: '/',
-    icon: Home,
+    icon: Store,
+  },
+  {
+    name: 'Cart',
+    link: DASHBOARD_PAGES.CART,
+    icon: ShoppingCart,
+  },
+  {
+    name: 'Favorites',
+    link: DASHBOARD_PAGES.FAVORITES,
+    icon: Heart,
+  },
+  {
+    name: 'Orders',
+    link: DASHBOARD_PAGES.ORDERS,
+    icon: Package,
   },
 ];
